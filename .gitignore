@@ -13,3 +13,8 @@ yarn-error.log
 .env
 .phpunit.result.cache
 composer.lock
+composer.local.json
+composer.main.json
+composer-finagle.php
+composer-finagle-do-main.php
+composer-finagle-do-local.php
