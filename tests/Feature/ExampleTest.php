@@ -14,6 +14,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+        echo "\n**Now testing the Tests\Feature\ExampleTest class**";
         $response = $this->get('/');
 
         $response->assertStatus(200);

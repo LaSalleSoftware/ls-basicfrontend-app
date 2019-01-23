@@ -43,10 +43,6 @@
         "laravel/dusk": "^4.0"
     },
     "autoload": {
-        "classmap": [
-            "database/seeds",
-            "database/factories"
-        ],
         "psr-4": {
             "App\\": "app/"
         }
