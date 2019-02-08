@@ -65,7 +65,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    // EDITED BY BOB
+    'timezone' => 'America/Toronto',
 
     /*
     |--------------------------------------------------------------------------

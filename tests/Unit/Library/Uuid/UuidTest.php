@@ -24,14 +24,15 @@ namespace Tests\Unit\Library\Uuid;
 
 // Laravel classes
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\DB;
 
 // LaSalle Software classes
 use Lasallesoftware\Library\UniversallyUniqueIDentifiers\UuidGenerator;
 
 class UuidTest extends TestCase
 {
+    // Define hooks to migrate the database before and after each test
     use DatabaseMigrations;
 
     public function setUp(): void
@@ -48,7 +49,7 @@ class UuidTest extends TestCase
      */
     public function testUuidShouldBe36CharactersLong()
     {
-        echo "\n**Now testing the Tests\Unit\Library\Uuid\UuidfactoryTest class**";
+        echo "\n**Now testing the Tests\Unit\Library\Uuid\UuidTest class**";
 
         $uuidGenerator = new UuidGenerator();
         $newUuid = $uuidGenerator->newUuid();
@@ -66,7 +67,7 @@ class UuidTest extends TestCase
      *
      * @return void
      */
-    public function testInsertUuidWithDefaultValues()
+    public function testInsertUuidWithFactoryValues()
     {
         // Arrange
         $uuidGenerator = new UuidGenerator();
@@ -83,31 +84,12 @@ class UuidTest extends TestCase
             $uuid['created_at']
         );
 
-        /*
-        echo "\nevent id = " . $uuid['lasallesoftware_event_id'];
-        echo "\nuuid = " . $uuid['uuid'];
-        echo "\ncomments = " . $uuid['comments'];
-        echo "\ncreated by = " . $uuid['created_by'];
-        echo "\ncreated at = " . $uuid['created_at'];
-        echo "\n\n";
-        */
-
         // Assert
-        $record = \Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::latest()->first();
-        /*
-        $this->assertDatabaseHas('uuids', [
-            'lasallesoftware_event_id' => 1,
-            'uuid'                     => $uuid['uuid'],
-            'comments'                 => $uuid['comments'],
-            'created_by'               => $uuid['created_by'],
-            'created_at'               => $uuid['created_at']
-        ]);
-        */
-
+        $record = \Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::find(DB::getPdo()->lastInsertId());
         // The following gives a message for each failing test, which is handier than the above's message when a test(s) fail
-        $this->assertTrue($record->lasallesoftware_event_id == 1,'***The uuid lasallesoftware_event_id should default to 1***');
-        $this->assertTrue($record->comments === null,'***The uuid comment should default to null***');
-        $this->assertTrue($record->created_by == 1,'***The uuid created_by default should be 1***');
+        $this->assertTrue($record->lasallesoftware_event_id == 1,'***The uuid lasallesoftware_event_id from factory is 1***');
+        $this->assertTrue($record->comments === null,'***The uuid comment factory is null***');
+        $this->assertTrue($record->created_by == 1,'***The uuid created_by factory is 1***');
     }
 
     /**
@@ -131,11 +113,7 @@ class UuidTest extends TestCase
         );
 
         // Assert
-        $record = \Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::latest()->first();
+        $record = \Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::find(DB::getPdo()->lastInsertId());
         $this->assertTrue($record->comments <> null, '***The uuid comment should be not-null***');
     }
-
-
-    // done? now, go write explanation in lslibrary:customseed!!
-
 }

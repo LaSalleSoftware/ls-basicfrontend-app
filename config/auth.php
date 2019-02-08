@@ -13,8 +13,10 @@ return [
     |
     */
 
+    // EDITED BY BOB
     'defaults' => [
-        'guard' => 'web',
+        //'guard' => 'web',
+        'guard' => 'lasalle',
         'passwords' => 'users',
     ],
 
@@ -45,6 +47,12 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        // ADDED BY BOB
+        'lasalle' => [
+            'driver'   => 'lasalle',
+            'provider' => 'users',
+        ],
     ],
 
     /*
@@ -64,11 +72,18 @@ return [
     |
     */
 
+    // EDITED BY BOB
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => Lasallesoftware\Library\Authentication\Models\User::class,
         ],
+
+        // ADDED BY BOB
+        //'lasalle' => [
+        //    'driver' => 'lasalle',
+        //    'model' => Lasallesoftware\Library\Authentication\Models\User::class,
+        //],
 
         // 'users' => [
         //     'driver' => 'database',
