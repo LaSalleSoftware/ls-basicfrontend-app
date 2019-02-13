@@ -27,7 +27,7 @@ class BasicLoginTest extends DuskTestCase
     /**
      * Test the basic login.
      *
-     * @throws \Throwable
+     * @group login
      */
     public function testBasicLogin()
     {
@@ -50,7 +50,7 @@ class BasicLoginTest extends DuskTestCase
     /**
      * Test the basic login when the email is incorrect
      *
-     * @throws \Throwable
+     * @group login
      */
     public function testLoginEmailFailure() {
 
@@ -66,7 +66,7 @@ class BasicLoginTest extends DuskTestCase
     /**
      * Test the basic login when the password is incorrect
      *
-     * @throws \Throwable
+     * @group login
      */
     public function testLoginPasswordFailure() {
 

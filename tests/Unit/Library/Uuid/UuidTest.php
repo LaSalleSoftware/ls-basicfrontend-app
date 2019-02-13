@@ -45,6 +45,8 @@ class UuidTest extends TestCase
      * The UUID should be 36 characters long. If not, the Ramsey package might have changed the UUID,
      * and the UUID could be longer than the 36char UUID database field
      *
+     * @group uuid
+     *
      * @return void
      */
     public function testUuidShouldBe36CharactersLong()
@@ -64,6 +66,8 @@ class UuidTest extends TestCase
      *  comments = null
      *  created_by = 1
      *  created_at = now()
+     *
+     * @group uuid
      *
      * @return void
      */
@@ -94,6 +98,8 @@ class UuidTest extends TestCase
 
     /**
      * Testing that the UUID is INSERTed into the database with no (null) comments.
+     *
+     * @group uuid
      *
      * @return void
      */

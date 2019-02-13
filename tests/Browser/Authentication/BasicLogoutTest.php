@@ -20,7 +20,7 @@ class BasicLogoutTest extends DuskTestCase
     /**
      * Test the basic logout. First, login, then access the logout form in the dropdown
      *
-     * @throws \Throwable
+     * @group logout
      */
     public function testBasicLogout()
     {

@@ -19,6 +19,8 @@ class BasicRegistrationTest extends DuskTestCase
 
     /*
      * Test the basic registration. No email verification!
+     *
+     * @group registration
      */
     public function testBasicRegistration()
     {
