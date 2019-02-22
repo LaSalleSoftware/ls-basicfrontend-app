@@ -15,8 +15,7 @@ return [
 
     // EDITED BY BOB
     'defaults' => [
-        //'guard' => 'web',
-        'guard' => 'lasalle',
+        'guard'     => 'web',
         'passwords' => 'users',
     ],
 
@@ -39,18 +38,13 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            //'driver' => 'session',
+            'driver'   => 'lasalle',
             'provider' => 'users',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
-        ],
-
-        // ADDED BY BOB
-        'lasalle' => [
-            'driver'   => 'lasalle',
             'provider' => 'users',
         ],
     ],
@@ -76,14 +70,9 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Lasallesoftware\Library\Authentication\Models\User::class,
+            //'model'  => App\User::class,
+            'model'  => \Lasallesoftware\Library\Authentication\Models\Personbydomain::class,
         ],
-
-        // ADDED BY BOB
-        //'lasalle' => [
-        //    'driver' => 'lasalle',
-        //    'model' => Lasallesoftware\Library\Authentication\Models\User::class,
-        //],
 
         // 'users' => [
         //     'driver' => 'database',

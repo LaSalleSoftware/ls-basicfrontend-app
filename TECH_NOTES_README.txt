@@ -18,9 +18,11 @@ Mods to laravel/laravel:
 * add new files to the /tests/ folder
 * delete the user and password_reset migrations, now in the library package
 * delete the database seed file (which was blank)
-* delete the UserFactory, now in the library package
+* delete the UserFactory, now in the library package,
+  at root\Database\Factories\PersonbydomainFactory.php <== NOT A TYPO, NOT "USER"!!!
 * delete user App\User model, now in the library package,
-  at Lasallesoftware\Library\Authentication\Models\User
+  at Lasallesoftware\Library\Authentication\Models\User <== NO!!! NO MORE USER MODEL!!!
+  NOW AT Lasallesoftware\Library\Profiles\Models\Personbydomain (yes, extends Authenticatable
 
 
 Misc notes:

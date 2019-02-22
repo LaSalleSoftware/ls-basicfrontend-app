@@ -5,23 +5,24 @@ namespace Tests\Browser\Authentication;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Lasallesoftware\Library\Authentication\Models\User;
+use Lasallesoftware\Library\Authentication\Models\Personbydomain;
 
 class BasicLoginTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
-    protected $user;
+    protected $personTryingToLogin;
 
     public function setUp(): void
     {
         parent::setUp();
+
         $this->artisan('lslibrary:customseed');
 
-        $this->user = factory(User::class)->create([
-            'email' => 'krugerbloom@gmail.com',
+        $this->personTryingToLogin = [
+            'email'    => 'bob.bloom@lasallesoftware.ca',
             'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-        ]);
+        ];
     }
 
     /**
@@ -33,12 +34,12 @@ class BasicLoginTest extends DuskTestCase
     {
         echo "\n**Now testing the Tests\Browser\Authentication\BasicLoginTest class**";
 
-        $user = $this->user;
+        $personTryingToLogin = $this->personTryingToLogin;
 
-        $this->browse(function (Browser $browser) use ($user) {
+        $this->browse(function (Browser $browser) use ($personTryingToLogin) {
             $browser->visit('/login')
-                ->type('email', $user->email)
-                ->type('password', 'secret')
+                ->type('email',    $personTryingToLogin['email'])
+                ->type('password', $personTryingToLogin['password'])
                 ->press('Login')
                 ->pause(5000)
                 //->assertPathIs('/home')
@@ -54,10 +55,12 @@ class BasicLoginTest extends DuskTestCase
      */
     public function testLoginEmailFailure() {
 
-        $this->browse(function (Browser $browser){
+        $personTryingToLogin = $this->personTryingToLogin;
+
+        $this->browse(function (Browser $browser) use ($personTryingToLogin) {
             $browser->visit('/login')
-                ->type('email', 'someemail@afakedomain.com')
-                ->type('password', 'secret')
+                ->type('email', 'wrong@email.com')
+                ->type('password', $personTryingToLogin['password'])
                 ->press('Login')
                 ->assertSee('These credentials do not match our records.');
         });
@@ -70,11 +73,11 @@ class BasicLoginTest extends DuskTestCase
      */
     public function testLoginPasswordFailure() {
 
-        $user = $this->user;
+        $personTryingToLogin = $this->personTryingToLogin;
 
-        $this->browse(function (Browser $browser) use ($user) {
+        $this->browse(function (Browser $browser) use ($personTryingToLogin) {
             $browser->visit('/login')
-                ->type('email', $user->email)
+                ->type('email', $personTryingToLogin['email'])
                 ->type('password', 'wrongpassword')
                 ->press('Login')
                 ->assertSee('These credentials do not match our records.');

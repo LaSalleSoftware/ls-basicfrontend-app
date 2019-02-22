@@ -92,8 +92,10 @@ class UuidTest extends TestCase
         $record = \Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::find(DB::getPdo()->lastInsertId());
         // The following gives a message for each failing test, which is handier than the above's message when a test(s) fail
         $this->assertTrue($record->lasallesoftware_event_id == 1,'***The uuid lasallesoftware_event_id from factory is 1***');
-        $this->assertTrue($record->comments === null,'***The uuid comment factory is null***');
+        $this->assertTrue($record->comments === null,'***The uuid comment should be null***');
         $this->assertTrue($record->created_by == 1,'***The uuid created_by factory is 1***');
+
+        $this->assertTrue(is_int($record->lasallesoftware_event_id), "***The uuid lasallesoftware_event_id must be an integer***");
     }
 
     /**
@@ -121,5 +123,38 @@ class UuidTest extends TestCase
         // Assert
         $record = \Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::find(DB::getPdo()->lastInsertId());
         $this->assertTrue($record->comments <> null, '***The uuid comment should be not-null***');
+    }
+
+    /**
+     * Testing that the createUuid() method.
+     *
+     * @group uuid
+     *
+     * @return void
+     */
+    public function testCreateUuidMethod()
+    {
+        // Arrange
+        $uuidGenerator = new UuidGenerator();
+        $uuid = factory(\Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::class)->make();
+
+        // Act
+        $uuidGenerator->createUuid(
+            $uuid['lasallesoftware_event_id'],
+            $uuid['comments'],
+            1
+        );
+
+        // Assert
+        $record = \Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::find(DB::getPdo()->lastInsertId());
+        $this->assertTrue($record->lasallesoftware_event_id == 1,'***The uuid lasallesoftware_event_id from factory is 1***');
+        $this->assertTrue($record->comments <> null,'***The uuid comment factory shouild not be null***');
+        $this->assertTrue($record->created_by == 1,'***The uuid created_by factory is 1***');
+
+        $this->assertTrue(is_int($record->lasallesoftware_event_id), "***The uuid lasallesoftware_event_id must be an integer***");
+        $this->assertTrue(strlen($record->uuid) === 36, '***The uuid string length should be 36***');
+        $this->assertTrue(is_int($record->created_by), "***The uuid created_by must be an integer***");
+
+        //TODO: test that the uuid and lookup_lasallesoftwareevent_id properties are assigned to the request instance
     }
 }
