@@ -22,13 +22,15 @@
 
 namespace Tests\Unit\Library\Uuid;
 
+// LaSalle Software classes
+use Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid as UuidModel;
+use Lasallesoftware\Library\UniversallyUniqueIDentifiers\UuidGenerator;
+
 // Laravel classes
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use \Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
-// LaSalle Software classes
-use Lasallesoftware\Library\UniversallyUniqueIDentifiers\UuidGenerator;
 
 class UuidTest extends TestCase
 {
@@ -51,11 +53,19 @@ class UuidTest extends TestCase
      */
     public function testUuidShouldBe36CharactersLong()
     {
-        echo "\n**Now testing the Tests\Unit\Library\Uuid\UuidTest class**";
+        echo "\n**Now testing Tests\Unit\Library\Uuid\UuidTest**";
 
-        $uuidGenerator = new UuidGenerator();
+        // Arrange
+        $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
+            ->setMethods(null)
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
+
+        // Act
         $newUuid = $uuidGenerator->newUuid();
 
+        // Assert
         $this->assertTrue(strlen($newUuid) === 36, '***The uuid string length should be 36***');
     }
 
@@ -74,7 +84,18 @@ class UuidTest extends TestCase
     public function testInsertUuidWithFactoryValues()
     {
         // Arrange
-        $uuidGenerator = new UuidGenerator();
+        $lasalleguard = $this->getMockBuilder(LasalleGuard::class)
+            ->setMethods(null)
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
+
+
+        $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
+            ->setMethods(null)
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
         $uuid = factory(\Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::class)->make([
             'comments' => null,
         ]);
@@ -108,7 +129,11 @@ class UuidTest extends TestCase
     public function testInsertUuidWithComments()
     {
         // Arrange
-        $uuidGenerator = new UuidGenerator();
+        $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
+            ->setMethods(null)
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
         $uuid = factory(\Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::class)->make();
 
         // Act
@@ -135,26 +160,68 @@ class UuidTest extends TestCase
     public function testCreateUuidMethod()
     {
         // Arrange
-        $uuidGenerator = new UuidGenerator();
-        $uuid = factory(\Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::class)->make();
+
+        // My UuidGenerator class injects Laravel's request object in the constructor.
+        // Well, the request object is not instantiated properly within a unit test, so
+        // do not want to run the constructor. Problem is that the CreateUuid() method injects
+        // the request object. So, I need to mock the request object to test the CreateUuid method
+
+        // create a mock request object
+        $request = $this->getMockBuilder(Request::class)
+            ->setMethods([])
+            ->disableOriginalConstructor()
+            ->getMock()
+        ;
+
+        // the UuidGenerator's assignToRequest() method uses Laravel's request object.
+        // I am not testing this specific method. However, I want to mock this method
+        // because the request object is just a "pretend" object for this test (see above!).
+        // So I'm stubbing this method to pretend that it just returns true, just so I can
+        // get through to green in this test
+        $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
+            ->setMethods(['assignToRequest'])
+            ->setConstructorArgs([$request])
+            ->getMock()
+        ;
+
+        // pretend the assignToRequest() method returns true just for this test
+        $uuidGenerator->expects($this->any())
+            ->method('assignToRequest')
+            ->will($this->returnValue(true))
+        ;
+
 
         // Act
-        $uuidGenerator->createUuid(
+        $uuid = factory(\Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::class)->make();
+
+        $newUuid = $uuidGenerator->createUuid(
             $uuid['lasallesoftware_event_id'],
             $uuid['comments'],
             1
         );
 
+
         // Assert
+
+        // Asserts for the most recent record inserted into the database table
         $record = \Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::find(DB::getPdo()->lastInsertId());
+
         $this->assertTrue($record->lasallesoftware_event_id == 1,'***The uuid lasallesoftware_event_id from factory is 1***');
-        $this->assertTrue($record->comments <> null,'***The uuid comment factory shouild not be null***');
+        $this->assertTrue($record->comments <> null,'***The uuid comment factory should not be null***');
         $this->assertTrue($record->created_by == 1,'***The uuid created_by factory is 1***');
 
         $this->assertTrue(is_int($record->lasallesoftware_event_id), "***The uuid lasallesoftware_event_id must be an integer***");
         $this->assertTrue(strlen($record->uuid) === 36, '***The uuid string length should be 36***');
         $this->assertTrue(is_int($record->created_by), "***The uuid created_by must be an integer***");
 
-        //TODO: test that the uuid and lookup_lasallesoftwareevent_id properties are assigned to the request instance
+        // Trying out this assert statement
+        $this->assertDatabaseHas('uuids', ['lasallesoftware_event_id' => $record->lasallesoftware_event_id]);
+        $this->assertDatabaseHas('uuids', ['comments' => $record->comments]);
+        $this->assertDatabaseHas('uuids', ['uuid' => $record->uuid]);
+        $this->assertDatabaseHas('uuids', ['created_by' => $record->created_by]);
     }
+
+    // Should test that the new request object properties (->lasallesoftware_event_id and ->uuid)work. Can't really
+    // do that in a unit test, and anyways the login will fail if these properties are not set in UuidGenerator. So,
+    // leaving this to Dusk
 }

@@ -47,7 +47,7 @@ class LasalleGuardCreateFullCredentialsTest extends TestCase
      */
     public function testFullSetOfCredentialsForAuthenticationWithKeyEqualEmail()
     {
-        echo "\n**Now testing the Tests\Unit\Library\Authentication\LoginTest class**";
+        echo "\n**Now testing Tests\Unit\Library\Authentication\LoginLogout;\LasalleGuardCreateFullCredentialsTest**";
 
         // Arrange
         // found this article to be helpful:

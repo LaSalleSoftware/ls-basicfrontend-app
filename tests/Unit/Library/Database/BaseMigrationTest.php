@@ -39,7 +39,7 @@ class BaseMigrationTest extends TestCase
      */
     public function testRunMigrationInProductionForAdmin()
     {
-        echo "\n**Now testing the Tests\Unit\Library\Database\BaseMigrationTest class**";
+        echo "\n**Now testing Tests\Unit\Library\Database\BaseMigrationTest**";
 
         // Arrange
         $baseMigration    = new BaseMigration();
