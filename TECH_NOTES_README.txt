@@ -22,8 +22,7 @@ Mods to laravel/laravel:
   at root\Database\Factories\PersonbydomainFactory.php <== NOT A TYPO, NOT "USER"!!!
 * delete user App\User model, now in the library package,
   at Lasallesoftware\Library\Authentication\Models\User <== NO!!! NO MORE USER MODEL!!!
-  NOW AT Lasallesoftware\Library\Profiles\Models\Personbydomain (yes, extends Authenticatable
-
+  NOW AT Lasallesoftware\Library\Profiles\Models\Personbydomain (yes, extends Authenticatable)
 
 Misc notes:
 * changes to the /config/ files are done within the LaSalle Software packages (see the service provider classes)
