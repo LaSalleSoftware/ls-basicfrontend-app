@@ -91,7 +91,7 @@ class LoginModelTest extends TestCase
         // The following gives a message for each failing test, which is handier than the above's message when a test(s) fail
         $this->assertTrue($record->personbydomain_id == 1,'***The login personbydomain_id should be 1***');
         $this->assertTrue($record->token == $logintoken,'***The login token is wrong***');
-        $this->assertTrue($record->uuid == $uuid,'***The uuid is wrong***');
+        $this->assertTrue($record->uuid <> null,'***The uuid is wrong***');
         $this->assertTrue($record->created_at == $now,'***The created_at is wrong***');
         $this->assertTrue($record->created_by == 1,'***The created_by should be 1***');
 

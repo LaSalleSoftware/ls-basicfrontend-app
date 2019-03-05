@@ -20,6 +20,12 @@
  *
  */
 
+
+// *******************************************************************
+// *** SEE COMMENTS IN LasalleGuardMethodsFromTheGuardContractTest ***
+// *******************************************************************
+
+
 namespace Tests\Unit\Library\Authentication\LoginLogout;
 
 // LaSalle Software classes

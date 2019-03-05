@@ -7,7 +7,7 @@ use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Lasallesoftware\Library\Authentication\Models\User;
 
-class BasicLogoutTest extends DuskTestCase
+class LoggingOutTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
@@ -24,12 +24,15 @@ class BasicLogoutTest extends DuskTestCase
      */
     public function testBasicLogout()
     {
-        echo "\n**Now testing the Tests\Browser\Authentication\BasicLogoutTest class**";
+        echo "\n**Now testing Tests\Browser\Authentication\LoggingOutTest **";
 
+        /*
         $user = factory(User::class)->create([
-            'email' => 'krugerbloom@gmail.com',
-            'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+            'email' => 'bob.bloom@lasallesoftware.ca',
+            //'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+            'password' => 'secret',
         ]);
+        */
 
         $this->browse(function (Browser $browser) use ($user) {
             $browser->visit('/login')
@@ -45,5 +48,10 @@ class BasicLogoutTest extends DuskTestCase
                 //->logout()
             ;
         });
+
+        // hard coding the values that are expected, made possible by my database table seeding
+        $this->assertDatabaseMissing('logins', ['personbydomain_id' => 1]);
+        $this->assertDatabaseMissing('logins', ['uuid' => Uuid::find(2)->uuid]);
+        $this->assertDatabaseMissing('logins', ['created_by' => 1]);
     }
 }

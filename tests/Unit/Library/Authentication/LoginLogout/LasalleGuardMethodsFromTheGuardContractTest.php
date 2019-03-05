@@ -20,6 +20,23 @@
  *
  */
 
+
+
+// *******************************************************************************************************************
+// My LasalleGuard class is based verbatim on Laravel's SessionGuard. Most of the methods I am using from SessionGuard
+// are untouched (or not used as I am not implementing basic auth).
+//
+// As well, many methods depend on the UserProvider contract. I am using the EloquentUserProvider class completely
+// untouched, as-is.
+// (https://github.com/laravel/framework/blob/5.8/src/Illuminate/Auth/EloquentUserProvider.php)
+//
+// So I am depending on Laravel a lot. Which is exactly what I am trying to achieve. I am not interested in testing
+// The Framework, so I will be testing what I am customizing.
+// *******************************************************************************************************************
+
+
+
+
 namespace Tests\Unit\Library\Authentication\LoginLogout;
 
 // LaSalle Software classes
@@ -59,33 +76,9 @@ class LasalleGuardMethodsFromTheGuardContractTest extends TestCase
     {
         // Arrange
 
-        // create a mock request object
-        $request = $this->getMockBuilder(Request::class)
-            ->setMethods([])
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
-
-        // create a mock user provider object
-        $userProvider = $this->getMockBuilder(UserProvider::class)
-            ->setMethods(null)
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
-
-        // create a mock session object
-        $session = $this->getMockBuilder(Session::class)
-            ->setMethods(null)
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
-
-        // create a mock login model object
-        $loginModel = $this->getMockBuilder(LoginModel::class)
-            ->setMethods(null)
-            //->disableOriginalConstructor()
-            ->getMock()
-        ;
+        //-------------------------------------------------
+        //  login a user (personbydomain)
+        //-------------------------------------------------
 
         // create a mock uuidGenerator object
         $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
@@ -94,45 +87,67 @@ class LasalleGuardMethodsFromTheGuardContractTest extends TestCase
             ->getMock()
         ;
 
-
+        // create a mock LasalleGuard object
         $lasalleguard = $this->getMockBuilder(LasalleGuard::class)
-            ->setMethods(['getName'])
-            ->setConstructorArgs([$request, $userProvider, $session, $loginModel])
+            ->setMethods(['getSessionKey', 'getUserById'])
+            ->disableOriginalConstructor()
             ->getMock()
         ;
 
-        // pretend the assignToRequest() method returns true just for this test
-        $lasalleguard->expects($this->any())
-            ->method('getName')
-            ->will($this->returnValue('login_session_123'))
-        ;
+        $login = new LoginModel();
 
         $personbydomain_id = 1;
         $logintoken        = $lasalleguard->getLoginToken();
         $uuid              = $uuidGenerator->newUuid();
         $now               = Carbon::now(null);
 
-        $this->withSession(['login_session_123' => $personbydomain_id]);
-        $this->withSession(['loginToken' => $logintoken]);
-
-        $data = [
+        $resultId = $login->createNewLoginsRecord([
             'personbydomain_id' => $personbydomain_id,
             'token'             => $logintoken,
             'uuid'              => $uuid,
             'created_at'        => $now,
             'created_by'        => 1,
-        ];
+        ]);
 
-        $login = new Login;
-        $resultId = $login->createNewLoginsRecord($data);
+        //-------------------------------------------------
+        //  setting up for calling the user() method
+        //-------------------------------------------------
+
+        // set up the statement within the user() method
+        // let's assume that the session is storing the correct personbydomain_id
+        // id = $this->getSessionKey($this->getName());
+        $lasalleguard->expects($this->at(0))
+            ->method('getSessionKey')
+            ->willReturn($personbydomain_id)
+        ;
+
+        // set up the statement within the user() method
+        // let's assume that the session is storing the correct login token
+        // $loginToken = $this->getSessionKey('loginToken');
+        $lasalleguard->expects($this->at(1))
+            ->method('getSessionKey')
+            ->willReturn($logintoken)
+        ;
+
+
+
+
+
+        //$personbydomain_idx = $lasalleguard->getSessionKey(0);
+        //$logintokenx = $lasalleguard->getSessionKey(1);
+
+        //echo "\npersonbydomain_id = " . $personbydomain_idx;
+        //echo "\nlogintoken = " . $logintokenx;
 
 
         // Act
         $resultUser = $lasalleguard->user();
 
+        var_dump($resultUser);
+
 
         // Assert
-        //$this->assertTrue(! is_null($resultUser));
+        $this->assertTrue(! is_null($resultUser));
 
         $this->assertTrue(1 === 1, "hey, false!!");
     }

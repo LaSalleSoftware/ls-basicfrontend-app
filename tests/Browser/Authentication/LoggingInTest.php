@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Request;
 use Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid;
 use Lasallesoftware\Library\Authentication\Models\Login;
 
-class BasicLoginTest extends DuskTestCase
+class LoggingInTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
@@ -24,21 +24,18 @@ class BasicLoginTest extends DuskTestCase
 
         $this->personTryingToLogin = [
             'email'    => 'bob.bloom@lasallesoftware.ca',
-            //'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
             'password' => 'secret',
         ];
-
-        //$this->artisan('lslibrary:customclearsessions');
     }
 
     /**
-     * Test the basic login.
+     * Test that the correct credentials result in a successful login
      *
-     * @group login1
+     * @group login
      */
-    public function testBasicLogin()
+    public function testLoginShouldBeSuccessful()
     {
-        echo "\n**Now testing Tests\Browser\Authentication\BasicLoginTest**";
+        echo "\n**Now testing Tests\Browser\Authentication\LoggingInTest**";
 
         $personTryingToLogin = $this->personTryingToLogin;
 
@@ -50,7 +47,7 @@ class BasicLoginTest extends DuskTestCase
                 ->press('Login')
                 ->pause(5000)
                 ->assertPathIs('/home')
-                //->assertSee('You are logged in!')
+                ->assertSee('You are logged in!')
                 //->logout()
              ;
         });
@@ -68,11 +65,11 @@ class BasicLoginTest extends DuskTestCase
     }
 
     /**
-     * Test the basic login when the email is incorrect
+     * Test that the login is unsuccessful when the wrong email is used
      *
      * @group login
      */
-    public function testLoginEmailFailure() {
+    public function testLoginShouldFailWithTheWrongEmail() {
 
         $personTryingToLogin = $this->personTryingToLogin;
 
@@ -83,14 +80,19 @@ class BasicLoginTest extends DuskTestCase
                 ->press('Login')
                 ->assertSee('These credentials do not match our records.');
         });
+
+        // hard coding the values that are expected, made possible by my database table seeding
+        $this->assertDatabaseMissing('logins', ['personbydomain_id' => 1]);
+        $this->assertDatabaseMissing('logins', ['uuid' => Uuid::find(2)->uuid]);
+        $this->assertDatabaseMissing('logins', ['created_by' => 1]);
     }
 
     /**
-     * Test the basic login when the password is incorrect
+     * Test that the login is unsuccessful when the wrong password is used
      *
      * @group login
      */
-    public function testLoginPasswordFailure() {
+    public function testLoginShouldFailWithTheWrongPassword() {
 
         $personTryingToLogin = $this->personTryingToLogin;
 
@@ -101,5 +103,12 @@ class BasicLoginTest extends DuskTestCase
                 ->press('Login')
                 ->assertSee('These credentials do not match our records.');
         });
+
+        // hard coding the values that are expected, made possible by my database table seeding
+        $this->assertDatabaseMissing('logins', ['personbydomain_id' => 1]);
+        $this->assertDatabaseMissing('logins', ['uuid' => Uuid::find(2)->uuid]);
+        $this->assertDatabaseMissing('logins', ['created_by' => 1]);
+
+        //echo "\n session loginToken = " . Request::session()->has('loginToken') . "\n";
     }
 }
