@@ -58,7 +58,7 @@ class UuidTest extends TestCase
         // Arrange
         $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
             ->setMethods(null)
-            ->disableOriginalConstructor()
+            //->disableOriginalConstructor()
             ->getMock()
         ;
 
@@ -84,18 +84,12 @@ class UuidTest extends TestCase
     public function testInsertUuidWithFactoryValues()
     {
         // Arrange
-        $lasalleguard = $this->getMockBuilder(LasalleGuard::class)
-            ->setMethods(null)
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
-
-
         $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
             ->setMethods(null)
-            ->disableOriginalConstructor()
+            //->disableOriginalConstructor()
             ->getMock()
         ;
+
         $uuid = factory(\Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::class)->make([
             'comments' => null,
         ]);
@@ -131,7 +125,7 @@ class UuidTest extends TestCase
         // Arrange
         $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
             ->setMethods(null)
-            ->disableOriginalConstructor()
+            //->disableOriginalConstructor()
             ->getMock()
         ;
         $uuid = factory(\Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid::class)->make();
@@ -180,7 +174,7 @@ class UuidTest extends TestCase
         // get through to green in this test
         $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
             ->setMethods(['assignToRequest'])
-            ->setConstructorArgs([$request])
+            //->setConstructorArgs([$request])
             ->getMock()
         ;
 
@@ -223,5 +217,5 @@ class UuidTest extends TestCase
 
     // Should test that the new request object properties (->lasallesoftware_event_id and ->uuid)work. Can't really
     // do that in a unit test, and anyways the login will fail if these properties are not set in UuidGenerator. So,
-    // leaving this to Dusk
+    // leaving this to Dusk & to http tests
 }

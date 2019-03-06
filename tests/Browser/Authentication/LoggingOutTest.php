@@ -5,47 +5,51 @@ namespace Tests\Browser\Authentication;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Lasallesoftware\Library\Authentication\Models\User;
+use Illuminate\Support\Facades\Request;
+
+use Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid;
+use Lasallesoftware\Library\Authentication\Models\Login;
 
 class LoggingOutTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
+    protected $personTryingToLogin;
+
     public function setUp(): void
     {
         parent::setUp();
+
         $this->artisan('lslibrary:customseed');
+
+        $this->personTryingToLogin = [
+            'email'    => 'bob.bloom@lasallesoftware.ca',
+            'password' => 'secret',
+        ];
     }
 
     /**
-     * Test the basic logout. First, login, then access the logout form in the dropdown
+     * Test that the correct credentials result in a successful login
      *
      * @group logout
      */
-    public function testBasicLogout()
+    public function testLoginShouldBeSuccessful()
     {
         echo "\n**Now testing Tests\Browser\Authentication\LoggingOutTest **";
 
-        /*
-        $user = factory(User::class)->create([
-            'email' => 'bob.bloom@lasallesoftware.ca',
-            //'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
-            'password' => 'secret',
-        ]);
-        */
+        $personTryingToLogin = $this->personTryingToLogin;
 
-        $this->browse(function (Browser $browser) use ($user) {
+        $this->browse(function (Browser $browser) use ($personTryingToLogin) {
             $browser->visit('/login')
-                ->type('email', $user->email)
-                ->type('password', 'secret')
+                ->type('email', $personTryingToLogin['email'])
+                ->type('password', $personTryingToLogin['password'])
                 ->press('Login')
                 ->pause(5000)
                 ->visit('/logout')
                 ->click('@logout-button')
                 ->pause(5000)
-                //->assertPathIs('/home')
+                ->assertSee('REGISTER')
                 ->assertSee('Laravel')
-                //->logout()
             ;
         });
 

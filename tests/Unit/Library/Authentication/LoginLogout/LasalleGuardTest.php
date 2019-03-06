@@ -21,9 +21,20 @@
  */
 
 
-// *******************************************************************
-// *** SEE COMMENTS IN LasalleGuardMethodsFromTheGuardContractTest ***
-// *******************************************************************
+
+// *******************************************************************************************************************
+// My LasalleGuard class is based verbatim on Laravel's SessionGuard. Most of the methods I am using from SessionGuard
+// are untouched (or not used as I am not implementing basic auth).
+//
+// As well, many methods depend on the UserProvider contract. I am using the EloquentUserProvider class completely
+// untouched, as-is.
+// (https://github.com/laravel/framework/blob/5.8/src/Illuminate/Auth/EloquentUserProvider.php)
+//
+// So I am depending on Laravel a lot. Which is exactly what I am trying to achieve. I am not interested in testing
+// The Framework, so I will be testing what I am customizing.
+// *******************************************************************************************************************
+
+
 
 
 namespace Tests\Unit\Library\Authentication\LoginLogout;
@@ -38,7 +49,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Carbon;
 
-class LasalleGuardMethodsByBobTest extends TestCase
+class LasalleGuardTest extends TestCase
 {
     // Define hooks to migrate the database before and after each test
     use DatabaseMigrations;
@@ -61,13 +72,13 @@ class LasalleGuardMethodsByBobTest extends TestCase
      * method: createFullCredentials($partialCredentials)
      *
      * @group login
-     * @group methodsbybob
+     * @group lasalleguard
      *
      * @return void
      */
     public function testFullSetOfCredentialsForAuthenticationWithKeyEqualEmail()
     {
-        echo "\n**Now testing Tests\Unit\Library\Authentication\LoginLogout\LasalleGuardMethodsByBobTest**";
+        echo "\n**Now testing Tests\Unit\Library\Authentication\LoginLogout\LasalleGuardTest**";
 
         // Arrange
         // found this article to be helpful:
@@ -99,7 +110,7 @@ class LasalleGuardMethodsByBobTest extends TestCase
      * Similar to the test above.
      *
      * @group login
-     * @group methodsbybob
+     * @group lasalleguard
      *
      * @return void
      */
@@ -131,7 +142,7 @@ class LasalleGuardMethodsByBobTest extends TestCase
      * The login token should be 40 characters long.
      *
      * @group login
-     * @group methodsbybob
+     * @group lasalleguard
      *
      * @return void
      */
@@ -149,106 +160,5 @@ class LasalleGuardMethodsByBobTest extends TestCase
 
         // Assert
         $this->assertTrue(strlen($token) === 40, '***The login token string length should be 40***');
-    }
-
-    /**
-     * The getLogin method should return a single logins database table record (actually, returns model).
-     *
-     * @group login
-     * @group methodsbybob
-     *
-     * @return void
-     */
-    public function testGetLoginShouldReturnSingleRecord()
-    {
-        // Arrange
-        $lasalleguard = $this->getMockBuilder(LasalleGuard::class)
-            ->setMethods(null)
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
-
-        $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
-            ->setMethods(null)
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
-
-        $logintoken = $lasalleguard->getLoginToken();
-        $uuid       = $uuidGenerator->newUuid();
-        $now        = Carbon::now(null);
-
-        $data = [
-            'personbydomain_id' => 1,
-            'token'             => $logintoken,
-            'uuid'              => $uuid,
-            'created_at'        => $now,
-            'created_by'        => 1,
-        ];
-
-        $login = new Login;
-        $resultId = $login->createNewLoginsRecord($data);
-
-        // Act
-        // what the $where looks like in LasalleGuard::user()
-        $where = [
-            'personbydomain_id' => 1,
-            'token'             => $logintoken,
-        ];
-        $result = $lasalleguard->getLogin($where);
-
-        // Assert
-        $this->assertTrue($result->count() == 1, '***There should be one login record***');
-    }
-
-    /**
-     * The getLogin method should return null, indicating that no record was found.
-     *
-     * @group login
-     * @group methodsbybob
-     *
-     * @return void
-     */
-    public function testGetLoginShouldReturnNull()
-    {
-        // Arrange
-        $lasalleguard = $this->getMockBuilder(LasalleGuard::class)
-            ->setMethods(null)
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
-
-        $uuidGenerator = $this->getMockBuilder(UuidGenerator::class)
-            ->setMethods(null)
-            ->disableOriginalConstructor()
-            ->getMock()
-        ;
-
-        $logintoken = $lasalleguard->getLoginToken();
-        $uuid       = $uuidGenerator->newUuid();
-        $now        = Carbon::now(null);
-
-        $data = [
-            'personbydomain_id' => 1,
-            'token'             => $logintoken,
-            'uuid'              => $uuid,
-            'created_at'        => $now,
-            'created_by'        => 1,
-        ];
-
-        $login = new Login;
-        $resultId = $login->createNewLoginsRecord($data);
-
-        // Act
-        // what the $where looks like in LasalleGuard::user()
-        $where = [
-            'personbydomain_id' => 1,
-            'token'             => 'abc', // wrong, as most likely scenario is that the login token is not
-                                          // in the logins database table
-        ];
-        $result = $lasalleguard->getLogin($where);
-
-        // Assert
-        $this->assertTrue(is_null($result), '***There should be one login record***');
     }
 }

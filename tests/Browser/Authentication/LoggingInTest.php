@@ -31,7 +31,7 @@ class LoggingInTest extends DuskTestCase
     /**
      * Test that the correct credentials result in a successful login
      *
-     * @group login
+     * @group loginb
      */
     public function testLoginShouldBeSuccessful()
     {
@@ -48,7 +48,6 @@ class LoggingInTest extends DuskTestCase
                 ->pause(5000)
                 ->assertPathIs('/home')
                 ->assertSee('You are logged in!')
-                //->logout()
              ;
         });
 
@@ -60,8 +59,6 @@ class LoggingInTest extends DuskTestCase
         // the login token is saved in the request object as a request property, so cannot retrieve
         // it in this test. So, just making sure that the logins table's token field is not null
         $this->assertTrue(Login::find(1)->token <> null);
-
-        //TODO: logout
     }
 
     /**
@@ -69,7 +66,8 @@ class LoggingInTest extends DuskTestCase
      *
      * @group login
      */
-    public function testLoginShouldFailWithTheWrongEmail() {
+    public function testLoginShouldFailWithTheWrongEmail()
+    {
 
         $personTryingToLogin = $this->personTryingToLogin;
 
@@ -92,8 +90,8 @@ class LoggingInTest extends DuskTestCase
      *
      * @group login
      */
-    public function testLoginShouldFailWithTheWrongPassword() {
-
+    public function testLoginShouldFailWithTheWrongPassword()
+    {
         $personTryingToLogin = $this->personTryingToLogin;
 
         $this->browse(function (Browser $browser) use ($personTryingToLogin) {
@@ -108,7 +106,5 @@ class LoggingInTest extends DuskTestCase
         $this->assertDatabaseMissing('logins', ['personbydomain_id' => 1]);
         $this->assertDatabaseMissing('logins', ['uuid' => Uuid::find(2)->uuid]);
         $this->assertDatabaseMissing('logins', ['created_by' => 1]);
-
-        //echo "\n session loginToken = " . Request::session()->has('loginToken') . "\n";
     }
 }
