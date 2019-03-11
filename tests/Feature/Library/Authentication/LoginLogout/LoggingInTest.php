@@ -85,7 +85,7 @@ class LoggingInTest extends TestCase
     public function test_I_login_successfully_with_the_lasalleguard_attempt_method()
     {
         $credentials =  [
-            'primary_email_address' => 'bob.bloom@lasallesoftware.ca',
+            'email' => 'bob.bloom@lasallesoftware.ca',
             'password'              => 'secret',
         ];
 
@@ -135,7 +135,7 @@ class LoggingInTest extends TestCase
     public function test_I_login_unsuccessfully_with_wrong_email_with_the_lasalleguard_attempt_method()
     {
         $credentials =  [
-            'primary_email_address' => 'bob@lasallesoftware.ca',
+            'email' => 'bob@lasallesoftware.ca',
             'password'              => 'secret',
         ];
 
@@ -174,7 +174,7 @@ class LoggingInTest extends TestCase
     public function test_I_login_unsuccessfully_with_wrong_paswword_with_the_lasalleguard_attempt_method()
     {
         $credentials =  [
-            'primary_email_address' => 'bob.bloom@lasallesoftware.ca',
+            'email' => 'bob.bloom@lasallesoftware.ca',
             'password'              => 'wrong_password',
         ];
 

@@ -66,7 +66,7 @@ class LasalleGuardTest extends TestCase
      * The login form lacks a variable with the name of the domain the person logging in belongs to.
      * So, it is added here.
      *
-     * The email field in the Personbydomains table is "primary_email_address", so need to make
+     * The email field in the Personbydomains table is "email", so need to make
      * sure that the credentials array uses this field name (key)
      *
      * method: createFullCredentials($partialCredentials)
@@ -99,7 +99,7 @@ class LasalleGuardTest extends TestCase
         $fullCredentials = $lasalleguard->createFullCredentials($partialCredentials);
 
         // Assert
-        $this->assertArrayHasKey('primary_email_address', $fullCredentials);
+        $this->assertArrayHasKey('email', $fullCredentials);
         $this->assertArrayHasKey('lookup_domain_title',   $fullCredentials);
         $this->assertArrayHasKey('password',              $fullCredentials);
     }
@@ -123,9 +123,9 @@ class LasalleGuardTest extends TestCase
             ->getMock()
         ;
 
-        // *** key = "primary_email_address" ***
+        // *** key = "email" ***
         $partialCredentials = [
-            'primary_email_address' => 'bob.bloom@lasallesoftware.ca',
+            'email' => 'bob.bloom@lasallesoftware.ca',
             'password'              => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         ];
 
@@ -133,7 +133,7 @@ class LasalleGuardTest extends TestCase
         $fullCredentials = $lasalleguard->createFullCredentials($partialCredentials);
 
         // Assert
-        $this->assertArrayHasKey('primary_email_address', $fullCredentials);
+        $this->assertArrayHasKey('email', $fullCredentials);
         $this->assertArrayHasKey('lookup_domain_title',   $fullCredentials);
         $this->assertArrayHasKey('password',              $fullCredentials);
     }

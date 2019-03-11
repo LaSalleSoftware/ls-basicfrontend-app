@@ -41,7 +41,6 @@ class LoggingInTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($personTryingToLogin) {
             $browser->visit('/login')
-                //->assertSee('Login')
                 ->type('email',    $personTryingToLogin['email'])
                 ->type('password', $personTryingToLogin['password'])
                 ->press('Login')
