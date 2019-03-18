@@ -24,6 +24,10 @@
             "options": {
                 "symlink": true
             }
+        },
+        {
+            "type": "composer",
+            "url": "https://nova.laravel.com"
         }
     ],
     "require": {
@@ -31,7 +35,9 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "lasallesoftware/lsv2-library-pkg": "dev-master"
+        "lasallesoftware/lsv2-library-pkg": "dev-master",
+        "guzzlehttp/guzzle": "^6.0",
+        "laravel/nova": "~2.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
