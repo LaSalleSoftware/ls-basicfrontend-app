@@ -26,6 +26,13 @@
             }
         },
         {
+            "type": "path",
+            "url": "../packages/lsv2-blogfrontend-pkg",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
             "type": "composer",
             "url": "https://nova.laravel.com"
         }
@@ -35,9 +42,11 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "lasallesoftware/lsv2-library-pkg": "dev-master",
         "guzzlehttp/guzzle": "^6.0",
-        "laravel/nova": "~2.0"
+        "laravel/nova": "~2.0",
+        "tymon/jwt-auth": "~1.0",
+        "lasallesoftware/lsv2-library-pkg": "dev-master",
+        "lasallesoftware/lsv2-blogfrontend-pkg": "dev-master"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

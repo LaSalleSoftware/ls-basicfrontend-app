@@ -1,22 +1,22 @@
+# A gitignore file specifies intentionally untracked files that Git should ignore
+# https://git-scm.com/docs/gitignore
+
 /node_modules
 /public/hot
 /public/storage
 /storage/*.key
 /vendor
 /.idea
-/.vscode
-/.vagrant
-Homestead.json
-Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
-.env.dusk
 .env.dusk.local
+.env.backup
+phpunit.xml
+phpunit.dusk.xml
 .phpunit.result.cache
+
 composer.lock
-composer.local.json
-composer.main.json
-composer-finagle.php
-composer-finagle-do-main.php
-composer-finagle-do-local.php
+
+.DS_Store
+Thumbs.db

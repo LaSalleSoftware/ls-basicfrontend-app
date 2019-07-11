@@ -14,7 +14,9 @@ Mods to laravel/laravel:
 * create new files in the root folder
 * customize composer.json
 * add LASALLE_APP_NAME to .env
+* add LASALLE_JWT_KEY to .env
 * customize .env
+* new config\lasallesoftware-frontendapp.php
 * add new files to the /tests/ folder
 * delete the user and password_reset migrations, now in the library package
 * delete the database seed file (which was blank)

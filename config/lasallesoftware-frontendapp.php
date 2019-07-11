@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the LaSalle Software v2 Basic Front-end Application
+ * This file is part of the Lasalle Software Front-end Application
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -20,17 +20,20 @@
  *
  */
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+return [
 
-Route::get('/', function () {
-    return view('welcome');
-});
+    /*
+    |--------------------------------------------------------------------------
+    | The key this front-end application uses for JWT
+    |--------------------------------------------------------------------------
+    |
+    | JWT is encrypted using this key.
+    |
+    | The administrative backend app must have this key to decrypt the JWT.
+    |
+    | Set in the .env file.
+    |
+    */
+    'lasalle_jwt_key' => env('LASALLE_JWT_KEY'),
+
+];
