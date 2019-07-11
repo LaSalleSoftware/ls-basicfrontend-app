@@ -20,3 +20,6 @@ composer.lock
 
 .DS_Store
 Thumbs.db
+
+composer.local.json
+composer.production.json
