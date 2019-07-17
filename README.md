@@ -18,6 +18,5 @@ If you discover any security related issues, please email Bob Bloom at "bob dot 
 ## Links
 
 * [Change Log](CHANGELOG.md)
-* [Code of Conduct](https://lasallesoftware.ca/docs/2.0/code_of_conduct))
-* [Installation](https://lasallesoftware.ca/docs/2.0/frontendappinstall)
+* [Installation](INSTALLATION.md)
 * [MIT License File](LICENSE.md)
