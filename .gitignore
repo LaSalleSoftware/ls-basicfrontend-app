@@ -12,8 +12,6 @@ yarn-error.log
 .env
 .env.dusk.local
 .env.backup
-phpunit.xml
-phpunit.dusk.xml
 .phpunit.result.cache
 
 composer.lock
@@ -21,5 +19,3 @@ composer.lock
 .DS_Store
 Thumbs.db
 
-composer.local.json
-composer.production.json
