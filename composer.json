@@ -24,7 +24,7 @@
         "laravel/tinker": "^1.0",
         "filp/whoops": "^2.0",
         "guzzlehttp/guzzle": "^6.0",
-        "tymon/jwt-auth": "~1.0",
+        "lcobucci/jwt": "^3.3",
         "lasallesoftware/lsv2-library-pkg": "1.9.*",
         "lasallesoftware/lsv2-blogfrontend-pkg": "1.9.*"
     },

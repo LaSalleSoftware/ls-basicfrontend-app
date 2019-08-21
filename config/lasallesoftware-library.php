@@ -70,4 +70,59 @@ return [
     */
     'lasalle_app_default_user_role' => 3,
 
+    /*
+	|--------------------------------------------------------------------------
+	| Login activity duration in minutes
+	|--------------------------------------------------------------------------
+	|
+	| After a certain number of minutes of not doing anything, a user will be logged out automatically.
+	| How many minutes do you want to allow inactivity before logging a user out automatically?
+	| This is a completely separate feature from Laravel's session inactivity setting (see
+    | https://stackoverflow.com/questions/41983976/laravel-5-session-lifetime)
+	|
+	*/
+    'lasalle_number_of_minutes_allowed_before_deleting_the_logins_record' => env('LASALLE_HOW_MANY_MINUTES_UNTIL_LOGINS_INACTIVITY', 10),
+
+    /*
+	|--------------------------------------------------------------------------
+	| Json Web Token EXP claim duration
+	|--------------------------------------------------------------------------
+	|
+    | How many seconds until a JWT expires?
+    |
+    | This EXP claim is set in the client domain.
+	|
+    | https://tools.ietf.org/html/rfc7519#section-4.1.4
+	|
+	*/
+    'lasalle_jwt_exp_claim_seconds_to_expiration' => 3600,
+
+    /*
+	|--------------------------------------------------------------------------
+	| Json Web Token IAT
+	|--------------------------------------------------------------------------
+	|
+	| How many seconds should a JWT be valid after it is issued.
+	|
+    | The IAT claim is set automatically in the client domain.
+    |
+    | This duration is used in the API (back-end) domain as a time based validation.
+    |
+    | https://tools.ietf.org/html/rfc7519#section-4.1.6
+	|
+	*/
+    'lasalle_jwt_iat_claim_valid_for_how_many_seconds' => 120,
+
+    /*
+	|--------------------------------------------------------------------------
+	| Excerpt Length
+	|--------------------------------------------------------------------------
+	|
+	| When an excerpt field is left blank, then the "content" field is used to
+	| construct the excerpt. How many characters of the base "content" field
+	| do you want to use for the excerpt?
+	|
+	*/
+    'how_many_initial_chars_of_content_field_for_excerpt' => '250',
+
 ];
