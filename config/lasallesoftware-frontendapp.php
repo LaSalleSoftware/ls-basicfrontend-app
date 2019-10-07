@@ -36,4 +36,16 @@ return [
     */
     'lasalle_jwt_key' => env('LASALLE_JWT_KEY'),
 
+    /*
+	|--------------------------------------------------------------------------
+	| Front-end blade view folder's path
+	|--------------------------------------------------------------------------
+	|
+	| Where is the blade folder that you are using?
+	|
+    | The LaSalle UI package's "base" folder is the default.
+	|
+	*/
+    'lasalle_path_to_front_end_view_path' => 'lasallesoftwarelasalleui::base',
+
 ];

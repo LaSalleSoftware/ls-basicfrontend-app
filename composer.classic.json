@@ -26,7 +26,8 @@
         "guzzlehttp/guzzle": "^6.0",
         "lcobucci/jwt": "^3.3",
         "lasallesoftware/lsv2-library-pkg": "1.9.*",
-        "lasallesoftware/lsv2-blogfrontend-pkg": "1.9.*"
+        "lasallesoftware/lsv2-blogfrontend-pkg": "1.9.*",
+        "lasallesoftware/lsv2-lasalleui-pkg": "1.9.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

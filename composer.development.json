@@ -31,6 +31,13 @@
             "options": {
                 "symlink": true
             }
+        },
+        {
+            "type": "path",
+            "url": "../packages/lsv2-lasalleui-pkg",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
@@ -41,7 +48,8 @@
         "guzzlehttp/guzzle": "^6.0",
         "lcobucci/jwt": "^3.3",
         "lasallesoftware/lsv2-library-pkg": "dev-master",
-        "lasallesoftware/lsv2-blogfrontend-pkg": "dev-master"
+        "lasallesoftware/lsv2-blogfrontend-pkg": "dev-master",
+        "lasallesoftware/lsv2-lasalleui-pkg": "dev-master"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
