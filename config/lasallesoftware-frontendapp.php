@@ -48,4 +48,40 @@ return [
 	*/
     'lasalle_path_to_front_end_view_path' => 'lasallesoftwarelasalleui::base',
 
+    /*
+	|--------------------------------------------------------------------------
+	| Date Format
+	|--------------------------------------------------------------------------
+	|
+    | What date format do you want for your front-end views?
+    |
+	| https://www.php.net/manual/en/function.date.php
+	|
+	*/
+    'lasalle_date_format'  => 'F d, Y',
+
+    /*
+	|--------------------------------------------------------------------------
+	| Social Media Meta Tag: Twitter Handle for the "twitter:site" tag
+	|--------------------------------------------------------------------------
+	|
+    | This is a Twitter handle, such as '@bobbloom'.
+    |
+	| For the twitter:site meta tag
+	|
+	*/
+    'lasalle_social_media_meta_tag_site'  => '@bobbloom',
+
+    /*
+	|--------------------------------------------------------------------------
+	| Social Media Meta Tag: Twitter Handle for the "twitter:creator" tag
+	|--------------------------------------------------------------------------
+	|
+    | This is a Twitter handle, such as '@bobbloom'.
+    |
+	| For the twitter:creator meta tag.
+	|
+	*/
+    'lasalle_social_media_meta_tag_creator'  => '@bobbloom',
+
 ];
