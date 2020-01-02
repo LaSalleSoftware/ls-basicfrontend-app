@@ -25,7 +25,8 @@
         "guzzlehttp/guzzle": "^6.0",
         "lcobucci/jwt": "^3.3",
         "fzaninotto/faker": "^1.4",
-        "league/flysystem-aws-s3-v3": "^1.0",
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "league/flysystem-cached-adapter": "~1.0",
         "lasallesoftware/lsv2-library-pkg": "1.9.*",
         "lasallesoftware/lsv2-blogfrontend-pkg": "1.9.*",
         "lasallesoftware/lsv2-lasalleui-pkg": "1.9.*"
