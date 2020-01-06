@@ -18,5 +18,5 @@ If you discover any security related issues, please email Bob Bloom at "bob dot 
 * [Change Log](CHANGELOG.md)
 * [Installation](INSTALLATION.md)
 * [Tech_Notes](TECH_NOTES_README.txt)
-* [AWS S3 Notes](AWS_S3_NOTES_README.txt)
+* [AWS S3 Notes](https://github.com/LaSalleSoftware/lsv2-adminbackend-app/blob/master/AWS_S3_NOTES_README.md)
 * [MIT License File](LICENSE.md)
