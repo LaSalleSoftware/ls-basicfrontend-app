@@ -1,6 +1,9 @@
 # CHANGE LOG
 
-## VERSION 2.0.2 (coming!)
+## VERSION 2.0.3 (coming!)
+
+## VERSION 2.0.2 (January 17, 2020)
+* [v2.0.2 issues](https://github.com/LaSalleSoftware/lsv2-basicfrontend-app/milestone/5?closed=1)
 
 ## VERSION 2.0.1 (January 07, 2020)
 * [v2.0.1 issues](https://github.com/LaSalleSoftware/lsv2-basicfrontend-app/milestone/4?closed=1)
