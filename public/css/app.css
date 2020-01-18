@@ -631,6 +631,14 @@ video {
   }
 }
 
+.link-custom1 {
+  background-color: #fff;
+}
+
+.link-custom1:hover {
+  color: #450508;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
