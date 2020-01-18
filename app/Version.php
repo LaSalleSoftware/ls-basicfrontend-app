@@ -14,11 +14,12 @@
  * @license    http://opensource.org/licenses/MIT MIT
  * @author     Bob Bloom
  * @email      bob.bloom@lasallesoftware.ca
- * @link       https://lasallesoftware.ca
- * @link       https://packagist.org/packages/lasallesoftware/lsv2-basicfrontend-app
- * @link       https://github.com/LaSalleSoftware/lsv2-basicfrontend-app
  *
+ * @see       https://lasallesoftware.ca
+ * @see       https://packagist.org/packages/lasallesoftware/lsv2-basicfrontend-app
+ * @see       https://github.com/LaSalleSoftware/lsv2-basicfrontend-app
  */
+
 namespace App;
 
 class Version
@@ -28,14 +29,14 @@ class Version
      *
      * @var string
      */
-    const VERSION = '2.0.2';
+    const VERSION = '2.0.3';
 
     /**
      * This package's release date.
      *
      * @var string
      */
-    const RELEASEDATE = 'January 17, 2020';
+    const RELEASEDATE = 'January 18, 2020';
 
     /**
      * This package's name.
