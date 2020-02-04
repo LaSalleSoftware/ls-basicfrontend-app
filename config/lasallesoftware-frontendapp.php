@@ -133,6 +133,18 @@ return [
 	| formats are supported. Only the first frame of an animated GIF will be used. SVG is not supported."
 	|
 	*/
-    'lasalle_social_media_meta_tag_default_image'  => 'https://lasallesoftware.ca/buffalo-bills.jpg',
+	'lasalle_social_media_meta_tag_default_image'  => 'https://lasallesoftware.ca/buffalo-bills.jpg',
+	
+	/*
+	|--------------------------------------------------------------------------
+	| Number of Recent Blog Posts to Display on the Home Page
+	|--------------------------------------------------------------------------
+	|
+	| How many recent blog posts do you want to display on the home page? 
+	|
+	| If you select "0" (zero), then perhaps you should bypass the home page controller.
+	|
+	*/
+    'lasalle_number_of_recent_blog_posts_to_display_on_the_home_page'  => 5,
 
 ];

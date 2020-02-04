@@ -31,7 +31,4 @@
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return view(config('lasallesoftware-frontendapp.lasalle_path_to_front_end_view_path') . '.home');
-});
+Route::get('/', '\Lasallesoftware\Blogfrontend\Http\Controllers\DisplayHomepageBlogPostsController@DisplayHomepageBlogPosts');
