@@ -23,7 +23,7 @@ Please note:
 ## Links
 
 * [Change Log](CHANGELOG.md)
-* [Installation](INSTALLATION.md) (pending)
+* [Installation](INSTALLATION.md)
 * [Tech_Notes](TECH_NOTES_README.txt)
 * [TailWindCSS Notes](TAILWIND.md)
-* * [Amazon Web Services Simple Storage Service (S3) Set-up](AWS_S3_NOTES_README.md)
+* [Amazon Web Services Simple Storage Service (S3) Set-up](AWS_S3_NOTES_README.md)
