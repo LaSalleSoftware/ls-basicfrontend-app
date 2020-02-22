@@ -38,6 +38,13 @@
             "options": {
                 "symlink": true
             }
+        },
+        {
+            "type": "path",
+            "url": "../packages/lsv2-contactform-pkg",
+            "options": {
+                "symlink": true
+            }
         }
     ],
     "require": {
@@ -51,7 +58,8 @@
         "league/flysystem-cached-adapter": "~1.0",
         "lasallesoftware/lsv2-library-pkg": "dev-master",
         "lasallesoftware/lsv2-blogfrontend-pkg": "dev-master",
-        "lasallesoftware/lsv2-lasalleui-pkg": "dev-master"
+        "lasallesoftware/lsv2-lasalleui-pkg": "dev-master",
+        "lasallesoftware/lsv2-contactform-pkg": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
