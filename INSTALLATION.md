@@ -27,6 +27,13 @@ DB_SOCKET=/Applications/MAMP/tmp/mysql/mysql.sock
 - set the config parameters as appropriate at ```config/lasallesoftware-frontendapp.php```. There are inline comments. 
 - make sure your paths, as specified in "config/lasallesoftware-library.php",  are the same as specified in the admin app's "config/lasallesoftware-library.php"
 
+#### Queues
+
+On your local computer, for queuing, most likely, you will want to set the queue connection environment parameter to "sync":
+```
+QUEUE_CONNECTION=sync
+```
+
 ## Forge set-up
 
 Since I am using a Forge/Digital Ocean set-up for my production site, I will go through the steps here. 
