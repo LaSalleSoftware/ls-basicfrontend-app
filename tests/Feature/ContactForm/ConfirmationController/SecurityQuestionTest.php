@@ -3,11 +3,10 @@
 namespace Tests\Feature\ContactForm;
 
 // LaSalle Software
-use Lasallesoftware\Contactform\Http\Controllers\ConfirmationController;
+use Lasallesoftware\Contactform\Http\Controllers\ConfirmationController\ConfirmationController;
 
 // Laravel classes
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 /**
  * Test the contact form's security question.
@@ -18,13 +17,16 @@ class SecurityQuestionTest extends TestCase
      * Verify that the security answer is "first_number plus second_number". 
      * 
      * @group Contactform
-     * @group ContactformContactform
-     * @group ContactformContactformVerifysecurityanswertest
+     * @group ContactformConfirmationcontroller
+     * @group ContactformConfirmationcontrollerSecurityquestion
+     * @group ContactformConfirmationcontrollerSecurityquestionSecurityanswer
      *
      * @return void
      */
     public function testVerifySecurityAnswerTest()
     {
+        echo "\n**Now testing Tests\Feature\ContactForm\ConfirmationTest\SecurityQuestionTest**";
+
         $confirmationController = new ConfirmationController;
 
         $first_number = 4;

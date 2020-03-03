@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\ContactForm;
+namespace Tests\Feature\ContactForm\ContactformController;
 
 // LaSalle Software
 use Lasallesoftware\Library\UniversallyUniqueIDentifiers\Models\Uuid;
@@ -28,14 +28,15 @@ class ContactFormTest extends TestCase
      * (ie, not via the partial view in another view).
      * 
      * @group Contactform
-     * @group ContactformContactform
-     * @group ContactformContactformSeecontactformtest
+     * @group ContactformContactformcontroller
+     * @group ContactformContactformcontrollerContactform
+     * @group ContactformContactformcontrollerContactformSeecontactform
      *
      * @return void
      */
     public function testSeeContactFormTest()
     {
-        echo "\n**Now testing Tests\Feature\ContactForm\ContactFormTest**";
+        echo "\n**Now testing Tests\Feature\ContactForm\ContactformController\ContactFormTest**";
 
         
         // go to the home page
@@ -61,8 +62,9 @@ class ContactFormTest extends TestCase
      * See the contact form's partial view in the home page.
      * 
      * @group Contactform
-     * @group ContactformContactform
-     * @group ContactformContactformSeepartialcontactforminthehomepagetest
+     * @group ContactformContactformcontroller
+     * @group ContactformContactformcontrollerContactform
+     * @group ContactformContactformcontrollerContactformSeepartialcontactforminthehomepagetest
      *
      * @return void
      */

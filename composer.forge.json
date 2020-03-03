@@ -30,7 +30,7 @@
         "lasallesoftware/lsv2-library-pkg": "^2.0",
         "lasallesoftware/lsv2-blogfrontend-pkg": "^2.0",
         "lasallesoftware/lsv2-lasalleui-pkg": "^2.0",
-        "lasallesoftware/lsv2-contactform-pkg": "^2.0"
+        "lasallesoftware/lsv2-contactformfrontend-pkg": "^2.0"
     },
     "config": {
         "optimize-autoloader": true,
