@@ -1,5 +1,19 @@
 <?php
 
+
+/*
+====================================================================================================
+
+       DO NOT RUN THESE TESTS!
+
+       The database insert happened on the front-end. But now it happens on the back-end. 
+       So this test will not work. 
+
+       I am keeping this test for reference!
+
+====================================================================================================
+*/
+
 namespace Tests\Feature\ContactForm;
 
 // LaSalle Software
@@ -27,10 +41,10 @@ class DatabaseTest extends TestCase
     /**
      * Verify that the contact form input data is inserted into the contact_form table  
      * 
-     * @group Contactform
-     * @group ContactformConfirmationcontroller
-     * @group ContactformConfirmationcontrollerDatabase
-     * @group ContactformConfirmationcontrollerDatabaseContactforminputfataIsinsertedintothecontactformtable
+     * @group Contactform-DO_NOT_RUN
+     * @group ContactformConfirmationcontroller-DO_NOT_RUN
+     * @group ContactformConfirmationcontrollerDatabase-DO_NOT_RUN
+     * @group ContactformConfirmationcontrollerDatabaseContactforminputfataIsinsertedintothecontactformtable-DO_NOT_RUN
      *
      * @return void
      */
@@ -68,10 +82,10 @@ class DatabaseTest extends TestCase
     /**
      * Verify that the personbydomains_id is 2 in the contact_form database table
      * 
-     * @group Contactform
-     * @group ContactformConfirmationcontroller
-     * @group ContactformConfirmationcontrollerDatabase
-     * @group ContactformConfirmationcontrollerDatabasePersonbydomainsexists
+     * @group Contactform-DO_NOT_RUN
+     * @group ContactformConfirmationcontroller-DO_NOT_RUN
+     * @group ContactformConfirmationcontrollerDatabase-DO_NOT_RUN
+     * @group ContactformConfirmationcontrollerDatabasePersonbydomainsexists-DO_NOT_RUN
      *
      * @return void
      */
