@@ -17,10 +17,6 @@ module.exports = {
       }
   },
   variants: {},
-  plugins: [
-    require('@tailwindcss/ui')({
-        layout: 'sidebar',
-      })
-  ]
+  plugins: []
 }
 // https://javisperez.github.io/tailwindcolorshades/#/?purple=450508&tv=1

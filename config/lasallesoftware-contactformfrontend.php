@@ -65,16 +65,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Insert contact form info into the database?
-    |--------------------------------------------------------------------------
-    |
-    | Do you want to insert the form data into the database? 
-    |  
-    */    
-    'insert_contact_form_info_into_the_database' => true,
-
-    /*
-    |--------------------------------------------------------------------------
     | FROM email address and name
     |--------------------------------------------------------------------------
     |
@@ -141,5 +131,41 @@ return [
     |  
     */    
     'bcc_recipients' => [],
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Allow emails to send
+    |--------------------------------------------------------------------------
+    |
+    | Of course you want to send the email out to you with the contact form info.
+    |
+    | On those occassions that you want to suppress the email -- maybe you are testing,
+    | maybe there is an email issue to deal with -- here's a setting to make it easy.
+    |
+    | Probably easier to modify your .env.
+    |
+    | true or false
+    |  
+    */    
+    'allow_to_send_email' => env('LASALLE_CONTACTFORMFRONTEND_ALLOW_TO_SEND_EMAIL', true),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Allow database insertions
+    |--------------------------------------------------------------------------
+    |
+    | Of course you want your contact form submissions to show up in the database. And
+    | then to enjoy perusing them in your fine Nova back-end!
+    |
+    | On those occassions that you want to suppress the database insertion -- maybe you are 
+    | testing, maybe there is a database issue to deal with -- here's a setting to make it easy.
+    |
+    | Probably easier to modify your .env.
+    |
+    | true or false
+    |  
+    */    
+    'allow_database_insertion' => env('LASALLE_CONTACTFORMFRONTEND_ALLOW_DATABASE_INSERTION', true),
 
 ];
