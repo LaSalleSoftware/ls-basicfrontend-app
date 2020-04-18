@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\ContactForm;
+namespace Tests\Feature\ContactForm\ConfirmationController;
 
 // LaSalle Software
 use Lasallesoftware\Contactform\Http\Controllers\ConfirmationController;
