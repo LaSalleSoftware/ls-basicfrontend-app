@@ -10,7 +10,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
- * @copyright  (c) 2019 The South LaSalle Trading Corporation
+ * @copyright  (c) 2019-2020 The South LaSalle Trading Corporation
  * @license    http://opensource.org/licenses/MIT MIT
  * @author     Bob Bloom
  * @email      bob.bloom@lasallesoftware.ca
@@ -19,6 +19,8 @@
  * @link       https://github.com/lasallesoftware/lsv2-basicfrontend-app
  *
  */
+
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
