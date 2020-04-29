@@ -12,3 +12,4 @@ Update:
 Notes:
 - I am using less.
 - Helpful article: [gyp: No Xcode or CLT version detected macOS Catalina](https://medium.com/flawless-app-stories/gyp-no-xcode-or-clt-version-detected-macos-catalina-anansewaa-38b536389e8d)
+- to update your packages, run `npm update`
