@@ -1,4 +1,9 @@
 module.exports = {
+  purge: [
+     './resources/views/**/*.blade.php',
+     './vendor/lasallesoftware/lsv2-contactformfrontend-pkg/views/**/*.blade.php',
+     '../../versiontwopointone/packages/lsv2-lasalleui-pkg/views/**/*.blade.php',
+     ],
   theme: {
       extend: {
           colors: {
