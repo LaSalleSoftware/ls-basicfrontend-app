@@ -67,7 +67,7 @@ return [
 	*/
     'lasalle_featured_image_default_type'  => 'external_file',
     //'lasalle_featured_image_default_type'  => 'code',
-    'lasalle_featured_image_default_image' => '/buffalo-bills.jpg',
+    'lasalle_featured_image_default_image' => '/nature1.jpg',
 
     /*
 	|--------------------------------------------------------------------------
@@ -133,7 +133,7 @@ return [
 	| formats are supported. Only the first frame of an animated GIF will be used. SVG is not supported."
 	|
 	*/
-	'lasalle_social_media_meta_tag_default_image'  => 'https://lasallesoftware.ca/buffalo-bills.jpg',
+	'lasalle_social_media_meta_tag_default_image'  => 'https://lasallesoftware.ca/nature1.jpg',
 	
 	/*
 	|--------------------------------------------------------------------------
