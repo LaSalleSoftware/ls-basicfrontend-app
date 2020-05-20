@@ -11,12 +11,12 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  *
  * @copyright  (c) 2019-2020 The South LaSalle Trading Corporation
- * @license    http://opensource.org/licenses/MIT MIT
+ * @license    http://opensource.org/licenses/MIT
  * @author     Bob Bloom
  * @email      bob.bloom@lasallesoftware.ca
- * @link       https://lasallesoftware.ca Blog, Podcast, Docs
- * @link       https://packagist.org/packages/lasallesoftware/library Packagist
- * @link       https://github.com/lasallesoftware/library GitHub
+ * @link       https://lasallesoftware.ca
+ * @link       https://packagist.org/packages/lasallesoftware/library
+ * @link       https://github.com/lasallesoftware/library
  *
  */
 
