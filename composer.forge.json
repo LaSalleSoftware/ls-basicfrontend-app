@@ -1,6 +1,6 @@
 {
-    "name": "lasallesoftware/lsv2-basicfrontend-app",
-    "description": "LaSalle Software v2 Basic Front-end Application.",
+    "name": "lasallesoftware/ls-basicfrontend-app",
+    "description": "LaSalle Software Basic Front-end Application.",
     "keywords": [
         "lasalle software",
         "south lasalle",
@@ -28,10 +28,10 @@
         "lcobucci/jwt": "^3.3",
         "league/flysystem-aws-s3-v3": "~1.0",
         "league/flysystem-cached-adapter": "~1.0",
-        "lasallesoftware/lsv2-library-pkg": "^2.1",
-        "lasallesoftware/lsv2-blogfrontend-pkg": "^2.1",       
-        "lasallesoftware/lsv2-contactformfrontend-pkg": "^2.1",
-        "lasallesoftware/lsv2-lasalleui-pkg": "^2.1"
+        "lasallesoftware/ls-library-pkg": "^2.1",
+        "lasallesoftware/ls-blogfrontend-pkg": "^2.1",       
+        "lasallesoftware/ls-contactformfrontend-pkg": "^2.1",
+        "lasallesoftware/ls-lasalleui-pkg": "^2.1"
     },
     "config": {
         "optimize-autoloader": true,

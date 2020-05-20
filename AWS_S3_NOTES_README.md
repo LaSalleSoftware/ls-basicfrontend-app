@@ -4,7 +4,7 @@
 
 This front-end app assumes that you are using the blog features. The blog admin is in the admin app. So, you need to install the admin app first. 
 
-The bulk of the S3 set-up is done during the admin app's S3 set-up. For reference, here is the admin app's [S3 set-up](https://github.com/LaSalleSoftware/lsv2-adminbackend-app/blob/master/AWS_S3_NOTES_README.md).
+The bulk of the S3 set-up is done during the admin app's S3 set-up. For reference, here is the admin app's [S3 set-up](https://github.com/LaSalleSoftware/ls-adminbackend-app/blob/master/AWS_S3_NOTES_README.md).
 
 There are a few things to do specifically for this front-end app...
 

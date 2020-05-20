@@ -16,8 +16,8 @@
  * @email      bob.bloom@lasallesoftware.ca
  *
  * @see       https://lasallesoftware.ca
- * @see       https://packagist.org/packages/lasallesoftware/lsv2-basicfrontend-app
- * @see       https://github.com/LaSalleSoftware/lsv2-basicfrontend-app
+ * @see       https://packagist.org/packages/lasallesoftware/ls-basicfrontend-app
+ * @see       https://github.com/LaSalleSoftware/ls-basicfrontend-app
  */
 
 namespace App;

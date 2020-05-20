@@ -10,7 +10,7 @@ You will need values in your adminstrative app's .env file, so please open your 
 
 #### Set up your local site
  
-- in your commmand line, run ```composer create-project --prefer-dist lasallesoftware/lsv2-basicfrontend-app your-custom-frontend-folder``` 
+- in your commmand line, run ```composer create-project --prefer-dist lasallesoftware/ls-basicfrontend-app your-custom-frontend-folder``` 
 - ```cd your-custom-frontend-folder```
 - if you have not yet set up your MAMP/LAMP/DOCKER/VM/etc! site for this app, then please do so now
 - if you want to paste one of the composer.xxxxxx.json files into your composer.json, then do so now and run ```composer update``` 
@@ -40,7 +40,7 @@ Since I am using a Forge/Digital Ocean set-up for my production site, I will go 
 
 You can adapt these steps to your particular situation.
 
-I talk of Forge more in my [Admin app's installation guide](https://github.com/LaSalleSoftware/lsv2-adminbackend-app/blob/master/INSTALLATION.md).
+I talk of Forge more in my [Admin app's installation guide](https://github.com/LaSalleSoftware/ls-adminbackend-app/blob/master/INSTALLATION.md).
 
 How about [Laravel's Vapor](https://vapor.laravel.com)? Oh yes, I am quite interested in deploying my LaSalle Software with Vapor!
 

@@ -12887,8 +12887,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/bobbloom/lasallesoftware/versiontwopointone/lsv2-basicfrontend-app/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/bobbloom/lasallesoftware/versiontwopointone/lsv2-basicfrontend-app/resources/less/app.less */"./resources/less/app.less");
+__webpack_require__(/*! /Users/bobbloom/lasallesoftware/versiontwopointone/ls-basicfrontend-app/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/bobbloom/lasallesoftware/versiontwopointone/ls-basicfrontend-app/resources/less/app.less */"./resources/less/app.less");
 
 
 /***/ })
