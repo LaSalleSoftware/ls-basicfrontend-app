@@ -27,6 +27,13 @@
         },
         {
             "type": "path",
+            "url": "../packages/lsv2-libraryfrontend-pkg",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
             "url": "../packages/lsv2-blogfrontend-pkg",
             "options": {
                 "symlink": true
@@ -56,7 +63,7 @@
         "lcobucci/jwt": "^3.3",
         "league/flysystem-aws-s3-v3": "~1.0",
         "league/flysystem-cached-adapter": "~1.0",
-        "lasallesoftware/ls-library-pkg": "dev-master",
+        "lasallesoftware/ls-libraryfrontend-pkg": "dev-master",
         "lasallesoftware/ls-blogfrontend-pkg": "dev-master",
         "lasallesoftware/ls-contactformfrontend-pkg": "dev-master",
         "lasallesoftware/ls-lasalleui-pkg": "dev-master"
@@ -68,8 +75,7 @@
         "nunomaduro/collision": "^4.1",
         "phpunit/phpunit": "^8.5",
         "laravel/dusk": "^6.0",
-        "laravel/tinker": "^2.0",
-        "barryvdh/laravel-debugbar": "^3.0"
+        "laravel/tinker": "^2.0"
     },
     "config": {
         "optimize-autoloader": true,
