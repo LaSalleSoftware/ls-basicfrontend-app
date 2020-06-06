@@ -41,7 +41,7 @@
         },
         {
             "type": "path",
-            "url": "../packages/lsv2-lasalleui-pkg",
+            "url": "../packages/lsv2-lasalleuifrontend-pkg",
             "options": {
                 "symlink": true
             }
@@ -66,7 +66,7 @@
         "lasallesoftware/ls-libraryfrontend-pkg": "dev-master",
         "lasallesoftware/ls-blogfrontend-pkg": "dev-master",
         "lasallesoftware/ls-contactformfrontend-pkg": "dev-master",
-        "lasallesoftware/ls-lasalleui-pkg": "dev-master"
+        "lasallesoftware/ls-lasalleuifrontend-pkg": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

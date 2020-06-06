@@ -31,7 +31,7 @@
         "lasallesoftware/ls-libraryfrontend-pkg": "^2.1",
         "lasallesoftware/ls-blogfrontend-pkg": "^2.1",       
         "lasallesoftware/ls-contactformfrontend-pkg": "^2.1",
-        "lasallesoftware/ls-lasalleui-pkg": "^2.1"
+        "lasallesoftware/ls-lasalleuifrontend-pkg": "^2.1"
     },
     "config": {
         "optimize-autoloader": true,

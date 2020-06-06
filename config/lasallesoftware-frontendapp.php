@@ -79,7 +79,7 @@ return [
     | The LaSalle UI package's "base" folder is the default.
 	|
 	*/
-    'lasalle_path_to_front_end_view_path' => 'lasallesoftwarelasalleui::base',
+    'lasalle_path_to_front_end_view_path' => 'lasallesoftwarelasalleuifrontend::base',
 
     /*
 	|--------------------------------------------------------------------------

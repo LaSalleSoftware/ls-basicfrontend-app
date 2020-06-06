@@ -29,7 +29,7 @@
         "lasallesoftware/ls-libraryfrontend-pkg": "^2.0",
         "lasallesoftware/ls-blogfrontend-pkg": "^2.1",
         "lasallesoftware/ls-contactformfrontend-pkg": "^2.1",
-        "lasallesoftware/ls-lasalleui-pkg": "^2.1"
+        "lasallesoftware/ls-lasalleuifrontend-pkg": "^2.1"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
