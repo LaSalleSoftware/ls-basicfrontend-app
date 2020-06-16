@@ -20,13 +20,6 @@
     "repositories": [
         {
             "type": "path",
-            "url": "../packages/lsv2-library-pkg",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
             "url": "../packages/lsv2-libraryfrontend-pkg",
             "options": {
                 "symlink": true
@@ -41,18 +34,18 @@
         },
         {
             "type": "path",
-            "url": "../packages/lsv2-lasalleuifrontend-pkg",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
             "url": "../packages/lsv2-contactformfrontend-pkg",
             "options": {
                 "symlink": true
             }
         }
+        {
+            "type": "path",
+            "url": "../packages/lsv2-lasalleuifrontend-pkg",
+            "options": {
+                "symlink": true
+            }
+        }        
     ],
     "require": {
         "php": "^7.2.5",
