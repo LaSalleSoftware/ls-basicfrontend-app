@@ -38,7 +38,7 @@
             "options": {
                 "symlink": true
             }
-        }
+        },
         {
             "type": "path",
             "url": "../packages/lsv2-lasalleuifrontend-pkg",
