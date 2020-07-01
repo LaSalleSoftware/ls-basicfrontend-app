@@ -61,7 +61,7 @@ return [
     | and the path to the layout using dot notation.
     |
     */    
-    'where_is_the_base_layout' => 'lasallesoftwarelasalleui::base.layouts.baselayout',
+    'where_is_the_base_layout' => 'lasallesoftwarelasalleuifrontend::base.layouts.baselayout',
 
     /*
     |--------------------------------------------------------------------------
