@@ -168,4 +168,25 @@ return [
     */    
     'allow_database_insertion' => env('LASALLE_CONTACTFORMFRONTEND_ALLOW_DATABASE_INSERTION', true),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Words/phrases that cause the contact form to not be processed
+    |--------------------------------------------------------------------------
+    |
+    | Words and phrases that cause the contact form:
+    | * NOT inserted into the database
+    | * NOT email sent to admin recipient
+    | 
+    | NOTE: the confirmation is still displayed to the contact form submitter
+    |
+    | NOTE: must be an array
+    |
+    | NOTE: user lowercase
+    |
+    */    
+    'words_and_phrases_that_cause_contact_form_processing_to_stop' => [
+        'domain',
+        'foo',
+        'bar',
+    ],
 ];
