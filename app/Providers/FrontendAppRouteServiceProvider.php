@@ -20,27 +20,26 @@
  * @see       https://github.com/LaSalleSoftware/ls-basicfrontend-app
  */
 
+
 namespace App\Providers;
 
+// Laravel framework
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
+// Laravel facade
 use Illuminate\Support\Facades\Route;
 
 class FrontendAppRouteServiceProvider extends ServiceProvider
 {
     /**
-     *    ** This class is in conjunction with Lasallesoftware\Laravelapp\Providers\RouteServiceProvider, *not* as its replacement! **
+     * Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */
     public function boot()
     {
         $this->routes(function () {
-           
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'))
-            ;
+            Route::middleware('web')->group(base_path('routes/web.php'));
         });
     }
 }
