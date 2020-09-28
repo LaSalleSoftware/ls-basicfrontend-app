@@ -171,11 +171,12 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        App\Providers\FrontendAppRouteServiceProvider::class,
+        Lasallesoftware\Laravelapp\Providers\AppServiceProvider::class,
+        Lasallesoftware\Laravelapp\Providers\AuthServiceProvider::class,
+        // Lasallesoftware\Laravelapp\Providers\BroadcastServiceProvider::class,
+        Lasallesoftware\Laravelapp\Providers\EventServiceProvider::class,
+        Lasallesoftware\Laravelapp\Providers\RouteServiceProvider::class,
 
     ],
 
