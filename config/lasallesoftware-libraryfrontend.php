@@ -285,4 +285,16 @@ return [
 	*/
 	'preview_in_frontend_token' => 'default-preview-in-frontend-token',
 
+	/*
+	|--------------------------------------------------------------------------
+	| Suppress web root (index) route in ls-laravelapp-pkg
+	|--------------------------------------------------------------------------
+	|
+	| Suppress the "/" route in the laravelapp package's routes/web.php.
+	|
+	| True or false
+	| 
+	*/
+	'lasalle_suppress_index_route_in_laravelapp_package' => false,
+
 ];
