@@ -1,6 +1,9 @@
 # CHANGE LOG
 
-## VERSION 2.4.5 (coming!)
+## VERSION 2.4.6 (coming!)
+
+## VERSION 2.4.5 (June 05, 2021)
+* [v2.4.5 issues](https://github.com/LaSalleSoftware/ls-basicfrontend-app/milestone/23?closed=1)
 
 ## VERSION 2.4.4 (April 23, 2021)
 * [v2.4.4 issues](https://github.com/LaSalleSoftware/ls-basicfrontend-app/milestone/22?closed=1)
